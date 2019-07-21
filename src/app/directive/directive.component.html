@@ -1,0 +1,80 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link " [class.active]="activePage == 'course'" (click)="activePage = 'course'">Course</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="activePage == 'pipe'" (click)="activePage = 'pipe'">pipe</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="activePage == 'resuable'" (click)="activePage = 'resuable'">Resuable</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li> -->
+</ul>
+<!-- <div *ngIf="courseList.length>0;then showCourse else noCourse "></div>
+<ng-template #showCourse>
+    {{courseList | json}}
+</ng-template>
+<ng-template #noCourse>
+    No Course List Available
+</ng-template> -->
+
+<!-- <div [hidden]="!courseList.length>0">
+    {{courseList | json}}
+</div>
+<div [hidden]="courseList.length>0">
+    No Course List Available
+</div> -->
+<div [ngSwitch]="activePage">
+    <div *ngSwitchCase="'course'">
+        <div class="form-group">
+            <!-- <input type="text" class="form-control" #titleInput [appInputFormat]="formatType" placeholder="Enter new Title" (keyup.enter)="addNewTitle(titleInput)"> -->
+            <input type="text" class="form-control" #titleInput [appInputFormat]="formatType" placeholder="Enter new Title" (keyup.enter)="addNewTitle(titleInput)">
+        </div>
+        <div [hidden]="!courseList.length>0">
+            <!-- {{courseList | json}} -->
+
+            <ul class="list-group">
+                <!-- <li class="list-group-item" *ngFor="let item of courseList; index as i" [class.list-group-item-success]="i%2==0"> -->
+                <!-- <li class="list-group-item" *ngFor="let item of courseList; index as i;even as e;odd as o" [class.list-group-item-success]="e" [class.list-group-item-info]="o"> -->
+                <li class="list-group-item" *ngFor="let item of courseList; index as i;even as e;odd as o" [ngClass]="{
+                    'list-group-item-success': e,
+                    'list-group-item-info':o
+                }">
+                    <!-- {{item.id}}. -->
+                    <button class="btn btn-danger mr-2" (click)="removeItem(item)">
+                        Remove
+                    </button>
+                    <span [ngStyle]="{
+                        'color': o ?'red':'blue',
+                        'font-weight':e?'bold':500
+                    }">{{i+1}}</span>. {{item.name}}->({{item.id}})
+                    <!-- <div class="row" *ngFor="let ele of (item |keyvalue)">
+                        <div class="col-2">
+                            {{ele.key}}
+                        </div>
+                        <div class="col">
+                            {{ele.value}}
+                        </div>
+                    </div> -->
+                </li>
+            </ul>
+        </div>
+        <div [hidden]="courseList.length>0">
+            No Course List Available
+        </div>
+    </div>
+    <div *ngSwitchCase="'pipe'">
+        <app-pipes></app-pipes>
+    </div>
+    <div *ngSwitchCase="'resuable'">
+        <app-reusable-demo></app-reusable-demo>
+    </div>
+    <div *ngSwitchDefault>
+        Invalid Selection
+    </div>
+</div>
+
+
+<div></div>

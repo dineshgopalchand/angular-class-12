@@ -1,0 +1,12 @@
+.card-top {
+    height: 100vh;
+}
+
+.card-top>.card-header,
+.card-top>.card-footer {
+    padding: 0;
+}
+
+.card-top>.card-body {
+    overflow: auto;
+}

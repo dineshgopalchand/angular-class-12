@@ -8,6 +8,7 @@
         <div class="alert alert-danger" *ngIf="firstName.errors && firstName.touched">
             <div *ngIf="firstName.errors.required">First name is required</div>
             <div *ngIf="firstName.errors.minlength">First name should be minimum of {{firstName.errors.minlength.requiredLength}} letters</div>
+            <div *ngIf="firstName.errors.serverError">Some Custom Error</div>
             <div *ngIf="firstName.errors.maxlength">First name shouldn't be more then {{firstName.errors.maxlength.requiredLength}} letters</div>
             <div *ngIf="firstName.errors.pattern">First name is not valid</div>
         </div>
@@ -19,6 +20,31 @@
         </div>
         <div class="form-group">
             <textarea name="comment" class="form-control" ngModel placeholder="Comment"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Mailing Option</label>
+            <!-- <select class="form-control" name="mailingOption" ngModel [(ngModel)]="selectedMailingOption"> -->
+            <select class="form-control" name="mailingOption" ngModel>
+                    <!-- [(ngModel)]="selectedMailingOption" -->
+                <!-- <option [value]="item.id==4? '': item.id" *ngFor="let item of mailingOption" > -->
+                <!-- <option [value]="item.id" *ngFor="let item of mailingOption" > -->
+                <option value="">Select Mailing Option</option>
+                <option [ngValue]="item" *ngFor="let item of mailingOption" >
+                    {{item.option}}
+                </option>
+            </select>
+        </div>
+        <div class="radio" *ngFor="let item of mailingOption">
+            <label for="mailingop">
+                <input type="radio" name="mailingop" [value]="item.id" ngModel>
+                {{item.option}}
+            </label>
+        </div>
+        <div class="checkbox">
+            <label for="subscribe">
+                <input type="checkbox" name="subscribe" ngModel>
+                Subscribe to Mailing List
+            </label>
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
     </form>

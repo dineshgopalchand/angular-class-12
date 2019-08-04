@@ -8,7 +8,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseService } from 'src/course.service';
 import { DataAndEventComponent } from './data-and-event/data-and-event.component';
 import { DataAndEvent2Component } from './data-and-event2/data-and-event2.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { SummaryPipe } from './common/pipe/summary.pipe';
 import { FavComponent } from './fav/fav.component';
@@ -19,6 +19,7 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { DirectiveComponent } from './directive/directive.component';
 import { InputFormatDirective } from './common/directive/input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +37,14 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     FooterComponent,
     DirectiveComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CourseService],
   bootstrap: [AppComponent]

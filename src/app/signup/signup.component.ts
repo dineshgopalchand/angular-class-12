@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserValidator } from '../common/validator/user-validator';
 
 @Component({
   selector: 'app-signup',
@@ -17,8 +18,9 @@ export class SignupComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(20),
-        Validators.pattern(/^[a-zA-z]+$/)
-      ]),
+        // Validators.pattern(/^[a-zA-z]+$/),
+        UserValidator.shouldContainSpace
+      ], UserValidator.uniqueUser),
       pass: new FormControl('', Validators.required)
     });
     console.log(this.signUp);

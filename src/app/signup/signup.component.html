@@ -6,9 +6,12 @@
         </label>
             <input type="text" class="form-control" name="username" formControlName="uname" (keyup)="unameInput()">
         </div>
+        <div class="alert alert-success" *ngIf="userName.pending">Please Wait!! Validating....</div>
         <div class="alert alert-danger" *ngIf="userName.errors && userName.touched">
             <div *ngIf="userName.errors.required">Username is required</div>
             <div *ngIf="userName.errors.pattern">Username is not Valid</div>
+            <div *ngIf="userName.errors.uniqueUser">Username not available</div>
+            <div *ngIf="userName.errors.shouldContainSpace">Username shouldn't contains space(" ")</div>
             <div *ngIf="userName.errors.minlength">Username length should be minimum {{userName.errors.minlength.requiredLength}}s.</div>
             <div *ngIf="userName.errors.maxlength">Username length shouldn't be more then {{userName.errors.maxlength.requiredLength}}s.</div>
         </div>
@@ -16,6 +19,7 @@
             <label for="password">Password</label>
             <input type="text" class="form-control" name="password" formControlName="pass">
         </div>
-        <input type="submit" class="btn btn-primary">
+        <input type="submit" class="btn btn-primary" [disabled]="signUp.invalid || signUp.pending">
+        <!-- {{userName.pending}} {{signUp.pending}} -->
     </form>
 </div>

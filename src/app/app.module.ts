@@ -20,6 +20,7 @@ import { DirectiveComponent } from './directive/directive.component';
 import { InputFormatDirective } from './common/directive/input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupComponent } from './signup/signup.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SignupComponent } from './signup/signup.component';
     DirectiveComponent,
     InputFormatDirective,
     ContactFormComponent,
-    SignupComponent
+    SignupComponent,
+    ToDoListComponent
   ],
   imports: [
     BrowserModule,

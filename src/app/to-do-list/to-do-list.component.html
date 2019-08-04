@@ -1,0 +1,28 @@
+<form [formGroup]="taskForm" (ngSubmit)="newTaskSubmit()">
+    <div class="form-group">
+        <input type="text" formControlName="title" class="form-control" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <input type="text" formControlName="details" class="form-control" placeholder="Details">
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="taskForm.invalid">Create</button>
+</form>
+<ng-container *ngIf="list.length!=0">
+    <!-- {{list.value | json}} -->
+    <h3>Task List</h3>
+    <div class="card" *ngFor="let item of list.controls">
+        {{item.value |json}}
+        <div class="card-body">
+            <h5 class="card-title">{{item.value.title}}</h5>
+            <p class="card-text">{{item.value.details}}</p>
+            <button class="btn btn-danger" (click)="deleteTask(item)">Delete</button>
+            <button class="btn ml-3" [ngClass]="{
+                    'btn-primary': item.value.status==0,
+                    'btn-info': item.value.status==1
+                }" (click)="updateStatus(item)">
+                {{item.value.status==0? 'Completed':'Pending'}}
+            </button>
+
+        </div>
+    </div>
+</ng-container>

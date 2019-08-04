@@ -21,7 +21,11 @@ export class SignupComponent implements OnInit {
         // Validators.pattern(/^[a-zA-z]+$/),
         UserValidator.shouldContainSpace
       ], UserValidator.uniqueUser),
-      pass: new FormControl('', Validators.required)
+      pass: new FormControl('', Validators.required),
+      name: new FormGroup({
+        fname: new FormControl('', Validators.required),
+        lname: new FormControl('', Validators.required)
+      })
     });
     console.log(this.signUp);
   }
@@ -30,6 +34,25 @@ export class SignupComponent implements OnInit {
   }
   get userName() {
     return this.signUp.get('uname');
+  }
+  get password() {
+    return this.signUp.get('pass');
+  }
+  get fName() {
+    return this.signUp.get('name.fname');
+  }
+  get lName() {
+    return this.signUp.get('name.lname');
+  }
+  signupSubmit() {
+    console.log(this.signUp.value);
+    // this.userName.setErrors({
+    //   customError: 'Some costom error'
+    // });
+    // this.signUp.setErrors({
+    //   formLevelCustomError: 'Some costom error1'
+    // });
+
   }
 
 }

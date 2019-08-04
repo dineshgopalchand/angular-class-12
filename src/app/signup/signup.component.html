@@ -1,5 +1,5 @@
 <div class="w-50 p-3 " style="margin:auto">
-    <form [formGroup]="signUp">
+    <form [formGroup]="signUp" (ngSubmit)="signupSubmit()">
         <div class="form-group">
             <label for="username">
             Username
@@ -19,7 +19,22 @@
             <label for="password">Password</label>
             <input type="text" class="form-control" name="password" formControlName="pass">
         </div>
+        <div class="row" formGroupName="name">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="fname" formControlName="fname" placeholder="First Name">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+
+                    <input type="text" class="form-control" name="lname" formControlName="lname" placeholder="Last Name">
+                </div>
+            </div>
+        </div>
         <input type="submit" class="btn btn-primary" [disabled]="signUp.invalid || signUp.pending">
-        <!-- {{userName.pending}} {{signUp.pending}} -->
+        <!-- {{userName.pending}}-->
+        <!-- {{signUp.errors | json}} -->
+        {{signUp.value | json}}
     </form>
 </div>

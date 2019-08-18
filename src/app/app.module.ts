@@ -21,6 +21,9 @@ import { InputFormatDirective } from './common/directive/input-format.directive'
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SignupComponent } from './signup/signup.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,13 +43,16 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     InputFormatDirective,
     ContactFormComponent,
     SignupComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    FormBuilderComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [CourseService],
   bootstrap: [AppComponent]

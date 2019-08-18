@@ -1,0 +1,10 @@
+.btn-check {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.btn-check:hover {
+    background-color: aquamarine;
+    box-shadow: 1px 1px 4px gray;
+}

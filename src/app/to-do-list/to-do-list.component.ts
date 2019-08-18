@@ -24,13 +24,20 @@ export class ToDoListComponent implements OnInit {
   newTaskSubmit() {
     // console.log(this.taskForm.value);
 
-    this.list.push(
+    // this.list.push(
+    //   new FormGroup({
+    //     title: new FormControl(this.taskForm.value.title),
+    //     details: new FormControl(this.taskForm.value.details),
+    //     status: new FormControl(1)
+    //   })
+    // );
+    this.list.controls.splice(0, 0, (
       new FormGroup({
         title: new FormControl(this.taskForm.value.title),
         details: new FormControl(this.taskForm.value.details),
         status: new FormControl(1)
       })
-    );
+    ));
     // console.log(this.toDoList);
     this.taskForm.reset();
 
@@ -41,6 +48,11 @@ export class ToDoListComponent implements OnInit {
   deleteTask(item: FormGroup) {
     const indexVal = this.list.controls.indexOf(item);
     this.list.removeAt(indexVal);
+  }
+
+  markCheck(item: FormGroup) {
+    const indexVal = this.list.controls.indexOf(item);
+    ((this.list.controls[indexVal]) as FormGroup).get('status').setValue(0);
   }
 
 }

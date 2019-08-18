@@ -14,13 +14,18 @@
         {{item.value |json}}
         <div class="card-body">
             <h5 class="card-title">{{item.value.title}}</h5>
-            <p class="card-text">{{item.value.details}}</p>
+            <p class="card-text">
+                {{item.value.details}}
+            </p>
             <button class="btn btn-danger" (click)="deleteTask(item)">Delete</button>
             <button class="btn ml-3" [ngClass]="{
                     'btn-primary': item.value.status==0,
                     'btn-info': item.value.status==1
                 }" (click)="updateStatus(item)">
                 {{item.value.status==0? 'Completed':'Pending'}}
+            </button>
+            <button class="btn btn-default btn-check" *ngIf="item.value.status!=0" (click)="markCheck(item)">
+                Check
             </button>
 
         </div>

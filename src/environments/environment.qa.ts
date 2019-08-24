@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   url: {
-    post: 'http://localhost:3001/posts'
+    post: 'http://localhost:3002/posts'
   }
 };

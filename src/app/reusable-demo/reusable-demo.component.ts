@@ -17,19 +17,19 @@ import { FavOutput } from '../fav/fav.component';
   //         </div>\
   //     </div>\
   // </div>',
-  template: `<!-- <app-fav></app-fav> -->
-  <div class="card" *ngFor="let post of postList">
-      <h5 class="card-header">{{post.name}}</h5>
-      <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5> -->
-          <p class="card-text">
-              ------{{post.postdetails}}
-          </p>
-          <div>
-              <app-fav [like-count]="post.likecount" [like-Check]="post.like" (favChange)="favChangeFunction($event)"></app-fav>
-          </div>
-      </div>
-  </div>`,
+  // template: `<!-- <app-fav></app-fav> -->
+  // <div class="card" *ngFor="let post of postList">
+  //     <h5 class="card-header">{{post.name}}</h5>
+  //     <div class="card-body">
+  //         <!-- <h5 class="card-title">Special title treatment</h5> -->
+  //         <p class="card-text">
+  //             ------{{post.postdetails}}
+  //         </p>
+  //         <div>
+  //             <app-fav [like-count]="post.likecount" [like-Check]="post.like" (favChange)="favChangeFunction($event)"></app-fav>
+  //         </div>
+  //     </div>
+  // </div>`,
   templateUrl: './reusable-demo.component.html',
   styleUrls: ['./reusable-demo.component.css'],
   styles: [`.card-body{background-color:#E1E1E1}`],

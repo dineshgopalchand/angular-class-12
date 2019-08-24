@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../common/helper/posts.type';
 
 import { PostService } from '../common/services/post.service';
+import { NotFoundError } from '../common/errors/not-found-error';
 
 @Component({
   selector: 'app-posts',
@@ -23,9 +24,14 @@ export class PostsComponent implements OnInit {
         res => {
           console.log(res);
           this.posts = res as Post[];
-        },
+        }
+        // ,
         // error => {
-        //   console.log(error);
+        //   // console.log(error);
+        //   if (error instanceof NotFoundError) {
+        //     // show toast notification for not found
+        //     console.log('not found error');
+        //   }
         // }, () => {
         //   console.log('its completed');
         // }

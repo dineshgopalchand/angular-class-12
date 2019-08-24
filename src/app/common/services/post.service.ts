@@ -10,6 +10,6 @@ import { environment } from 'src/environments/environment';
 export class PostService extends DataService {
 
   constructor(http: HttpClient) {
-    super(http, environment.url.post );
+    super(http, environment.url.post + 'asdfds');
   }
 }

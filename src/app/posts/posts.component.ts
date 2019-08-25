@@ -20,6 +20,7 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.resetNewPost();
     this.dataService.getAll()
+    // .toPromise().then((res) => console.log(res));
       .subscribe(
         res => {
           console.log(res);

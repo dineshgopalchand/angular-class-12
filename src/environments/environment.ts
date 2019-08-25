@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   url: {
-    post: 'http://localhost:3000/posts'
+    post: 'http://localhost:3000/posts',
+    git: 'https://api.github.com/users/',
   }
 };
 
